@@ -1,13 +1,31 @@
 import React from 'react';
-import './App.css';
-import Login from "./pages/login";
+import {Router} from 'react-router-dom';
 
-function App() {
-	return (
-		<div className="Binnex">
-			<Login />
-		</div>
-	);
+import {history} from './helpers/'
+
+import Login from './pages/login';
+import Dashboard from './pages/dashboard';
+
+class App extends React.Component{
+	render() {
+		const user = localStorage.getItem('user');
+
+		if (user) {
+			return (
+				<div className="Binnex">
+					<Router history={history}>
+						<Dashboard />
+					</Router>
+				</div>
+			);
+		} else {
+			return (
+				<div className="Binnex">
+					<Login/>
+				</div>
+			);
+		}
+	}
 }
 
 export default App;
