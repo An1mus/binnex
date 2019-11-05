@@ -8,6 +8,12 @@ import Settings from './pages/settings';
 import Dashboard from './pages/dashboard';
 
 class App extends React.Component{
+	logout() {
+		localStorage.removeItem('user');
+		history.push('/');
+		window.location.reload();
+	}
+
 	render() {
 		const user = localStorage.getItem('user');
 
@@ -18,6 +24,8 @@ class App extends React.Component{
 						<nav>
 							<Link to={'/'}>App</Link>
 							<Link to={'/settings'}>Settings</Link>
+
+							<button onClick={() => this.logout()}>Logout</button>
 						</nav>
 
 						<Switch>
@@ -31,10 +39,14 @@ class App extends React.Component{
 		} else {
 			return (
 				<div className="Binnex">
-					<Redirect from={'/'} to={'/login'}/>
+					<Router history={history}>
+						<Redirect from={'/'} to={'/login'}/>
 
-					<Route path={'/'} component={Login}/>
-					<Route path={'/dashboard'} component={Login}/>
+						<Switch>
+							<Route path={'/'} component={Login}/>
+							<Route path={'/dashboard'} component={Login}/>
+						</Switch>
+					</Router>
 				</div>
 			);
 		}
