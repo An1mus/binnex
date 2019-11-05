@@ -1,9 +1,10 @@
 import React from 'react';
-import {Router} from 'react-router-dom';
+import {Router, Switch, Route, Redirect, Link} from 'react-router-dom';
 
 import {history} from './helpers/'
 
 import Login from './pages/login';
+import Settings from './pages/settings';
 import Dashboard from './pages/dashboard';
 
 class App extends React.Component{
@@ -14,14 +15,26 @@ class App extends React.Component{
 			return (
 				<div className="Binnex">
 					<Router history={history}>
-						<Dashboard />
+						<nav>
+							<Link to={'/'}>App</Link>
+							<Link to={'/settings'}>Settings</Link>
+						</nav>
+
+						<Switch>
+							<Route exact path={'/'} component={Dashboard}/>
+							<Route path={'/dashboard'} component={Dashboard}/>
+							<Route path={'/settings'} component={Settings}/>
+						</Switch>
 					</Router>
 				</div>
 			);
 		} else {
 			return (
 				<div className="Binnex">
-					<Login/>
+					<Redirect from={'/'} to={'/login'}/>
+
+					<Route path={'/'} component={Login}/>
+					<Route path={'/dashboard'} component={Login}/>
 				</div>
 			);
 		}
