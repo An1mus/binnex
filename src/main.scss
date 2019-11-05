@@ -1,0 +1,19 @@
+$primary: (
+    'positive': #63b5f1,
+    'negative': #fc5085,
+    'text': #63727f,
+    'textHighlight': #ffffff,
+    'background': #1d222c,
+    'backgroundLight': #272e3a
+);
+
+@function getPrimary($key: 'positive') {
+    @return map-get($primary, $key);
+}
+
+input {
+    border: 0;
+    display: block;
+    background: getPrimary('backgroundLight');
+    outline: none;
+}
