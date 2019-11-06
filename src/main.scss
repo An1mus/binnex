@@ -11,9 +11,14 @@ $primary: (
     @return map-get($primary, $key);
 }
 
+html {
+    background: getPrimary('background');
+}
+
 input {
     border: 0;
     display: block;
     background: getPrimary('backgroundLight');
+    color: getPrimary('text');
     outline: none;
 }

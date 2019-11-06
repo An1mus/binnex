@@ -1,7 +1,11 @@
+html {
+  background: #1d222c; }
+
 input {
   border: 0;
   display: block;
   background: #272e3a;
+  color: #63727f;
   outline: none; }
 
 /*# sourceMappingURL=main.css.map */
