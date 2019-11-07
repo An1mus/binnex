@@ -1,9 +1,9 @@
-import expres from 'express';
+import express from 'express';
 
 /**
  * A authentication router
  */
-const auth = expres.Router();
+const auth = express.Router();
 
 auth.use('/', (req, res, next) => {
 	const message = 'Authentication OK'; // TODO: remove messaging from here

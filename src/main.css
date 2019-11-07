@@ -1,11 +1,35 @@
 html {
   background: #1d222c; }
 
-input {
+button {
+  background: #63b5f1;
   border: 0;
+  border-radius: .2rem;
+  cursor: pointer;
+  padding: .6rem 1rem .7rem;
   display: block;
+  margin-bottom: .5rem;
+  color: #ffffff;
+  outline: none; }
+
+input {
   background: #272e3a;
+  border: 0;
+  border-radius: .2rem;
+  padding: .6rem 1rem .7rem;
+  display: block;
+  margin-bottom: .5rem;
   color: #63727f;
   outline: none; }
+
+::placeholder {
+  color: #3d464e;
+  opacity: 1; }
+
+:-ms-input-placeholder {
+  color: red; }
+
+::-ms-input-placeholder {
+  color: red; }
 
 /*# sourceMappingURL=main.css.map */

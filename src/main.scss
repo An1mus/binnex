@@ -15,10 +15,37 @@ html {
     background: getPrimary('background');
 }
 
-input {
+button {
+    background: getPrimary('positive');
     border: 0;
+    border-radius: .2rem;
+    cursor: pointer;
+    padding: .6rem 1rem .7rem;
     display: block;
+    margin-bottom: .5rem;
+    color: getPrimary('textHighlight');
+    outline: none;
+}
+
+input {
     background: getPrimary('backgroundLight');
+    border: 0;
+    border-radius: .2rem;
+    padding: .6rem 1rem .7rem;
+    display: block;
+    margin-bottom: .5rem;
     color: getPrimary('text');
     outline: none;
+}
+
+::placeholder {
+    color: darken(getPrimary('text'), 17%);
+    opacity: 1;
+}
+:-ms-input-placeholder {
+    color: red;
+}
+
+::-ms-input-placeholder {
+    color: red;
 }
