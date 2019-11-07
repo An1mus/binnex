@@ -37,4 +37,6 @@ yarn-error.log*
 .idea/httpRequests
 .idea/caches/build_file_checksums.ser
 
-./server
+./src/.sass-cache
+
+./server/config

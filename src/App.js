@@ -1,6 +1,8 @@
 import React from 'react';
 import {Router, Switch, Route, Redirect, Link} from 'react-router-dom';
 
+import './main.scss';
+
 import {history} from './helpers/'
 
 import Login from './pages/login';
@@ -8,6 +10,14 @@ import Settings from './pages/settings';
 import Dashboard from './pages/dashboard';
 
 class App extends React.Component{
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			isLoggedIn: false
+		};
+	}
+
 	logout() {
 		localStorage.removeItem('user');
 		history.push('/');
