@@ -1,7 +1,3 @@
-import axios from 'axios';
+import authService from './auth.service';
 
-import LOGIN_URL from '../api';
-
-async function login(username, password) {
-	await axios.post(LOGIN_URL, {username, password});
-}
+export default { authService };
