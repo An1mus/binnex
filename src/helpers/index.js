@@ -1,3 +1,4 @@
 import { history } from "./helpers";
+import isProd from "./isprod"
 
-export { history };
+export { history, isProd };
