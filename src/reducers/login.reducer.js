@@ -1,4 +1,4 @@
-import LOGIN_ACTIONS from "../actions/login";
+import LOGIN_ACTIONS from "../actions/types/login";
 
 const user = localStorage.getItem('user') || {};
 
