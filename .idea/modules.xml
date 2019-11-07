@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/binnex.iml" filepath="$PROJECT_DIR$/.idea/binnex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mern-setup.iml" filepath="$PROJECT_DIR$/.idea/mern-setup.iml" />
     </modules>
   </component>
 </project>
