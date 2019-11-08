@@ -1,3 +1,3 @@
 import bodyParser from './bodyparser';
 
-export default { bodyParser };
+export default bodyParser;
