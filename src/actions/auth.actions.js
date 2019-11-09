@@ -5,5 +5,9 @@ const userActions = {
 };
 
 function login(username, password) {
-
+	return dispatch => {
+		function onSuccess(user){
+			dispatch({type: LOGIN_ACTIONS.LOGIN_SUCCESS, payload: user})
+		}
+	}
 }
