@@ -9,5 +9,9 @@ function login(username, password) {
 		function onSuccess(user){
 			dispatch({type: LOGIN_ACTIONS.LOGIN_SUCCESS, payload: user})
 		}
+
+		function onFailure(user) {
+			dispatch({type: LOGIN_ACTIONS.LOGIN_FAILURE, payload: user});
+		}
 	}
 }
