@@ -1,6 +1,7 @@
 import React from 'react';
+import {connect} from "react-redux";
 
-class Login extends React.Component {
+class LoginComponent extends React.Component {
 	render() {
 		return (
 			<>
@@ -12,4 +13,10 @@ class Login extends React.Component {
 	}
 }
 
-export default Login;
+const mapStateProps = state => {
+	const {isLoggedIn, isLoggingIn, user} = state;
+	return {isLoggedIn, isLoggingIn, user};
+};
+
+const connectedLoginComponent = connect(mapStateProps)(LoginComponent)
+
