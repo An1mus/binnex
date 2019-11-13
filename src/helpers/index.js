@@ -1,4 +1,4 @@
 import { history } from "./history";
-import isProd from "./isprod"
+import { isProd } from "./isprod"
 
 export { history, isProd };
