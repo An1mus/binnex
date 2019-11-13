@@ -1,4 +1,5 @@
 import LOGIN_ACTIONS from "../actions/types/login";
+import { history } from '../helpers'
 
 const user = localStorage.getItem('user') || {};
 
@@ -13,6 +14,9 @@ function loginReducer(state = user, action) {
 				isLoggingIn: true,
 			};
 		case LOGIN_ACTIONS.LOGIN_SUCCESS:
+			localStorage.setItem('user', user);
+			history.push('/');
+			window.location.reload();
 			return {
 				user,
 				isLoggingIn: false,

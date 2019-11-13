@@ -3,9 +3,9 @@ import {Router, Switch, Route, Redirect, Link} from 'react-router-dom';
 
 import './main.scss';
 
-import {history} from './helpers/'
+import { history } from './helpers/'
 
-import Login from './pages/login';
+import { Login } from './pages/login';
 import Settings from './pages/settings';
 import Dashboard from './pages/dashboard';
 
