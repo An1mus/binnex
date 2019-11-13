@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {userActions} from "../../actions/auth.actions";
 
 class LoginComponent extends React.Component {
 	render() {
@@ -18,5 +19,12 @@ const mapStateProps = state => {
 	return {isLoggedIn, isLoggingIn, user};
 };
 
-const connectedLoginComponent = connect(mapStateProps)(LoginComponent)
+const mapStateDispatchToProps = () => {
+	return {
+		login: userActions.login,
+	};
+};
+
+const connectedLoginComponent = connect(mapStateProps, mapStateDispatchToProps)(LoginComponent);
+export {connectedLoginComponent as Login};
 
