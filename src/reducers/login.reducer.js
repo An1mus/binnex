@@ -16,7 +16,6 @@ function loginReducer(state = user, action) {
 		case LOGIN_ACTIONS.LOGIN_SUCCESS:
 			localStorage.setItem('user', user);
 			history.push('/');
-			window.location.reload();
 			return {
 				user,
 				isLoggingIn: false,

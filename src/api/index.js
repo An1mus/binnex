@@ -1,3 +1,3 @@
-import LOGIN_URL from './server.url';
+import { LOGIN_URL, REGISTER_URL } from './server.url';
 
-export default {LOGIN_URL};
+export {LOGIN_URL, REGISTER_URL};
