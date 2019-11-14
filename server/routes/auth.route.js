@@ -6,8 +6,8 @@ import express from 'express';
 const auth = express.Router();
 
 auth.use('/', (req, res, next) => {
+	console.log('Hello there');
 	const message = 'Authentication OK'; // TODO: remove messaging from here
-	console.log(req);
 	res.json(message);
 	next();
 });
