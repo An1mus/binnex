@@ -7,8 +7,10 @@ import url from 'url';
  * @param next
  */
 function bodyParser (req, res, next) {
-	const body = url.parse(req.url, true).query;
-	console.log(body);
+	const body = url.parse(req.url).query;
+
+	console.log(req.url);
+	console.log(req.query);
 
 	res.body = body;
 	next();
