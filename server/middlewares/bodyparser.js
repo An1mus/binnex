@@ -11,6 +11,8 @@ function bodyParser (req, res, next) {
 
 	console.log(req.url);
 	console.log(req.query);
+	console.log(req.body);
+	console.log(req.params);
 
 	res.body = body;
 	next();
