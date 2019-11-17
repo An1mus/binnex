@@ -9,11 +9,6 @@ import url from 'url';
 function bodyParser (req, res, next) {
 	const body = url.parse(req.url).query;
 
-	console.log(req.url);
-	console.log(req.query);
-	console.log(req.body);
-	console.log(req.params);
-
 	res.body = body;
 	next();
 }
