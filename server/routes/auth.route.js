@@ -1,4 +1,15 @@
 import express from 'express';
+import Ajv from 'ajv';
+
+import { SCHEMAS } from '../config/schemas';
+
+/**
+ * Validation schemas
+ */
+const ajv = Ajv({allErrors: true});
+
+// authorization schema
+ajv.addSchema(SCHEMAS.AUTH.map, SCHEMAS.AUTH.name);
 
 /**
  * A authentication router
@@ -6,14 +17,12 @@ import express from 'express';
 const auth = express.Router();
 
 auth.use('/', (req, res, next) => {
+	const isInputValid = ajv.validate(SCHEMAS.AUTH.name, req.body);
 
-	console.log('request processed');
-	res.status(200).json(req.body);
+	if(!isInputValid) res.status(400).json({message: 'Input data is not valid'});
 
-	console.log(req.body); // undefined
-
-	// res.status(404).json({message: 'User not found'});
-	// res.status(200).json({message: 'All good!'});
+	const {username, password} =  req.body;
+	if(checkUserInTheDataBase(username, password)) res.status(200).json({token: 'generated token'});
 
 	next();
 });
