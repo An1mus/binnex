@@ -2,6 +2,7 @@ import express from 'express';
 import Ajv from 'ajv';
 
 import { SCHEMAS } from '../config/schemas';
+import tokenChecker from "./middlewares/tokenChecker";
 
 /**
  * Validation schemas
