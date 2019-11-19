@@ -22,7 +22,8 @@ auth.use('/', (req, res, next) => {
 	if(!isInputValid) res.status(400).json({message: 'Input data is not valid'});
 
 	const {username, password} =  req.body;
-	if(checkUserInTheDataBase(username, password)) res.status(200).json({token: 'generated token'});
+	// TODO: add DB check
+	if(username && password) res.status(200).json({token: 'generated token'});
 
 	next();
 });
