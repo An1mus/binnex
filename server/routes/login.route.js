@@ -14,15 +14,20 @@ const Users = mongoose.model('Users');
  */
 const ajv = Ajv({allErrors: true});
 
-// authorization schema
+/**
+ * Login data schema
+ */
 ajv.addSchema(SCHEMAS.AUTH.map, SCHEMAS.AUTH.name);
 
 /**
- * A authentication router
+ * Login router
  */
-const auth = express.Router();
+const login = express.Router();
 
-auth.use('/', (req, res, next) => {
+/**
+ * Main route will return token for existing user
+ */
+login.use('/', (req, res, next) => {
 	const isInputValid = ajv.validate(SCHEMAS.AUTH.name, req.body);
 
 	if(!isInputValid) res.status(400).json({message: 'Input data is not valid'});
@@ -43,4 +48,4 @@ auth.use('/', (req, res, next) => {
 	})(req, res, next)
 });
 
-export default auth;
+export default login;
