@@ -1,8 +1,11 @@
 import express from 'express';
+import mongoose from 'mongoose';
+import passport from 'passport';
 import Ajv from 'ajv';
 
 import { SCHEMAS } from '../config/schemas';
-import tokenChecker from "./middlewares/tokenChecker";
+
+const Users = mongoose.model('Users');
 
 /**
  * Validation schemas
@@ -22,11 +25,20 @@ auth.use('/', (req, res, next) => {
 
 	if(!isInputValid) res.status(400).json({message: 'Input data is not valid'});
 
-	const {username, password} =  req.body;
-	// TODO: add DB check
-	if(username && password) res.status(200).json({token: 'generated token'});
+	return passport.authenticate('local', { session: false }, (err, passportUser, info) => {
+		if(err) {
+			return next(err);
+		}
 
-	next();
+		if(passportUser) {
+			const user = passportUser;
+			user.token = passportUser.generateJWT();
+
+			return res.json({ user: user.toAuthJSON() });
+		}
+
+		return res.status(400).info;
+	})(req, res, next)
 });
 
 export default auth;

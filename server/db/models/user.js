@@ -62,4 +62,4 @@ UserSchema.methods.getUserData = function() {
 	}
 };
 
-mongoose.model('User', UserSchema);
+mongoose.model('Users', UserSchema);
