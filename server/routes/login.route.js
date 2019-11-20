@@ -5,6 +5,8 @@ import Ajv from 'ajv';
 
 import { SCHEMAS } from '../config/schemas';
 
+import '../db/models/user';
+
 const Users = mongoose.model('Users');
 
 /**
