@@ -2,13 +2,13 @@ import express from 'express';
 
 import cors from 'cors';
 
-import auth from "./routes/auth.route";
+import login from "./routes/login.route";
 
 const app = express();
 
 app.use('/', cors());
 app.use('/', express.json());
 
-app.use('/auth', auth);
+app.use('/login', login);
 
 export default app;
