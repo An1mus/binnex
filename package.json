@@ -17,9 +17,12 @@
         "sha256": "^0.2.0"
     },
     "scripts": {
-        "start": "concurrently \"nodemon --exec babel-node server/index.js\" \"react-scripts start\"",
+        "start": "concurrently \"npm run front\" \"npm run back\" \"npm run docker\"",
         "build": "react-scripts build",
         "test": "react-scripts test",
+        "docker": "docker-compose up",
+        "front": "react-scripts start",
+        "back": "nodemon --exec babel-node server/index.js",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
