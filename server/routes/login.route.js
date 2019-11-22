@@ -1,11 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import passport from 'passport';
 import Ajv from 'ajv';
 
 import { SCHEMAS } from '../config/schemas';
 
 import '../db/models/user';
+import '../config/passport';
 
 const Users = mongoose.model('Users');
 
