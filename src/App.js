@@ -29,7 +29,7 @@ class App extends React.Component{
 
 		if (user) {
 			return (
-				<div className="Binnex">
+				<div>
 					<Router history={history}>
 						<nav>
 							<Link to={'/'}>App</Link>
@@ -48,7 +48,7 @@ class App extends React.Component{
 			);
 		} else {
 			return (
-				<div className="Binnex">
+				<div>
 					<Router history={history}>
 						<Redirect from={'/'} to={'/login'}/>
 
