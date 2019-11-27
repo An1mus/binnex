@@ -32,6 +32,7 @@ login.use('/', (req, res, next) => {
 
 	if(!isInputValid) res.status(400).json({message: 'Input data is not valid'});
 
+	// update passport route
 	return passport.authenticate('local', { session: false }, (err, passportUser, info) => {
 		if(err) {
 			return next(err);
