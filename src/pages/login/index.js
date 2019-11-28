@@ -8,21 +8,21 @@ class LoginComponent extends React.Component {
 		super(props);
 
 		this.state = {
-			username: '',
-			password: ''
+			showLoginForm: true,
 		};
 
-		this.submitForm = this.submitForm.bind(this);
 	}
 
-	submitForm(username, password) {
+	submitForm = (username, password) => {
 		this.props.login(username, password);
 	};
 
 	render() {
 		return (
 			<>
-				<LoginForm onSubmit={this.submitForm}/>
+				{
+					this.state.showLoginForm && <LoginForm onSubmit={this.submitForm}/>
+				}
 			</>
 		);
 	}
