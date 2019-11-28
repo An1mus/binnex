@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {userActions} from "../../actions/auth.actions";
+import LoginForm from "./loginForm";
 
 class LoginComponent extends React.Component {
 	constructor(props) {
@@ -9,44 +10,19 @@ class LoginComponent extends React.Component {
 		this.state = {
 			username: '',
 			password: ''
-		}
+		};
+
+		this.submitForm = this.submitForm.bind(this);
 	}
 
-	handleChange(e) {
-		const name = e.target.name;
-		const value = e.target.value;
-
-		this.setState({[name]: value});
-	}
-
-	submitForm(e) {
-		e.preventDefault();
-
-		this.props.login(this.state.username, this.state.password);
-	}
+	submitForm(username, password) {
+		this.props.login(username, password);
+	};
 
 	render() {
 		return (
 			<>
-				<form onSubmit={(e) => this.submitForm(e)}>
-					<input
-						onChange={e => this.handleChange(e)}
-						value={this.state.username}
-						name={"username"}
-						type="text"
-						placeholder={'Username'}
-						required
-					/>
-					<input
-						onChange={e => this.handleChange(e)}
-						value={this.state.password}
-						name={"password"}
-						type="text"
-						placeholder={'Password'}
-						required
-					/>
-					<button>Login</button>
-				</form>
+				<LoginForm onSubmit={this.submitForm}/>
 			</>
 		);
 	}
