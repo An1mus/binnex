@@ -13,15 +13,11 @@ class LoginComponent extends React.Component {
 
 	}
 
-	submitForm = (username, password) => {
-		this.props.login(username, password);
-	};
-
 	render() {
 		return (
 			<>
 				{
-					this.state.showLoginForm && <LoginForm onSubmit={this.submitForm}/>
+					this.state.showLoginForm && <LoginForm onSubmit={this.props.login}/>
 				}
 			</>
 		);
