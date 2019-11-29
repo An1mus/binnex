@@ -1,52 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {connect} from "react-redux";
 import {userActions} from "../../actions/auth.actions";
+import LoginForm from "./loginForm";
 
 class LoginComponent extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			username: '',
-			password: ''
-		}
-	}
+			showLoginForm: true,
+		};
 
-	handleChange(e) {
-		const name = e.target.name;
-		const value = e.target.value;
-
-		this.setState({[name]: value});
-	}
-
-	submitForm(e) {
-		e.preventDefault();
-
-		this.props.login(this.state.username, this.state.password);
 	}
 
 	render() {
 		return (
 			<>
-				<form onSubmit={(e) => this.submitForm(e)}>
-					<input
-						onChange={e => this.handleChange(e)}
-						value={this.state.username}
-						name={"username"}
-						type="text"
-						placeholder={'Username'}
-						required
-					/>
-					<input
-						onChange={e => this.handleChange(e)}
-						value={this.state.password}
-						name={"password"}
-						type="text"
-						placeholder={'Password'}
-						required
-					/>
-					<button>Login</button>
-				</form>
+				{
+					this.state.showLoginForm && <LoginForm onSubmit={this.props.login}/>
+				}
 			</>
 		);
 	}
